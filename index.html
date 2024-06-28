@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mail Server Status</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #282c34;
+        color: #61dafb;
+        font-family: "Courier New", Courier, monospace;
+        margin: 0;
+      }
+      .container {
+        text-align: center;
+      }
+      .status-icon {
+        font-size: 100px;
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      h1 {
+        font-size: 2.5rem;
+        margin: 0.5rem 0;
+      }
+      p {
+        font-size: 1.2rem;
+      }
+      .geeky-details {
+        margin-top: 20px;
+        font-size: 0.9rem;
+        color: #ffffff;
+      }
+      footer {
+        margin-top: 20px;
+        font-size: 0.9rem;
+        color: #61dafb;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <i class="fas fa-server status-icon"></i>
+      <h1>Mail Server Status: Online</h1>
+      <p>Your mail server is running smoothly.</p>
+      <div class="geeky-details">
+        <p>Server Time: <span id="serverTime"></span></p>
+        <p>SMTP-01 : 003.038.032.128</p>
+        <p>SMTP-02 : 003.036.221.001</p>
+        <p>SMTP-03 : 043.200.055.207</p>
+        <p>Hostname: jamesmx.net</p>
+      </div>
+    </div>
+    <footer>
+      Contact:
+      <a href="mailto:postmaster@jamesmx.net" style="color: #61dafb"
+        >postmaster@jamesmx.net</a
+      >
+    </footer>
+    <script>
+      function updateTime() {
+        const now = new Date();
+        const formattedTime = now.toUTCString();
+        document.getElementById("serverTime").textContent = formattedTime;
+      }
+      setInterval(updateTime, 1000);
+      updateTime();
+    </script>
+  </body>
+</html>
